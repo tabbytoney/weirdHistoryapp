@@ -8,7 +8,7 @@ const RenderStory = ({ story }) => {
         <Card.Image source={story.image}>
           <View style={{ justifyContent: 'center', flex: 1 }}>
             <Text style={{ color: 'white', textAlign: 'center', fontSize: 20 }}>
-              {campsite.name}
+              {story.name}
             </Text>
           </View>
         </Card.Image>
