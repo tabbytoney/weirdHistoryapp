@@ -12,7 +12,7 @@ const FeaturedItem = ({ item }) => {
           <View style={{ justifyContent: 'center', flex: 1 }}>
             <Text
               style={{
-                color: '#f9b9ab',
+                color: '#fff',
                 textAlign: 'center',
                 fontSize: 20,
               }}
@@ -21,7 +21,7 @@ const FeaturedItem = ({ item }) => {
             </Text>
           </View>
         </Card.Image>
-        <Text style={{ margin: 20 }}>{item.description}</Text>
+        <Text style={{ margin: 20 }}>{item.previewText}</Text>
       </Card>
     );
   }
