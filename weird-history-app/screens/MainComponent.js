@@ -138,7 +138,7 @@ const Main = () => {
       <Drawer.Navigator
         drawerContentOptions={{
           activeTintColor: 'pink',
-          activeBackgroundColor: 'grey',
+
           inactiveTintColor: 'black',
           inactiveBackgroundColor: 'white',
           labelStyle: {
