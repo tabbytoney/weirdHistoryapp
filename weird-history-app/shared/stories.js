@@ -6,7 +6,7 @@ export const STORIES = [
     year: 1799,
     featured: true,
     previewText:
-      "Washington's doctors may have been responsible for his death.",
+      "Washington's doctors may have been responsible for his death. See Stories for more.",
     description:
       "Washington's death is believed to be either from illness or from the treatment of that illness. On December 12, 1799",
   },
@@ -17,7 +17,7 @@ export const STORIES = [
     image: require('../assets/images/WashintonDeath.png'),
     year: 1233,
     featured: true,
-    previewText: 'Something here',
+    previewText: 'Something here. See Stories for more.',
     description: 'Washington placeholder text1',
   },
   {
@@ -26,7 +26,7 @@ export const STORIES = [
     image: require('../assets/images/WashintonDeath.png'),
     year: 1233,
     featured: false,
-    previewText: 'Something short here',
+    previewText: 'Something short here. See Stories for more.',
     description: 'Washington placeholder text2',
   },
   {
@@ -34,7 +34,7 @@ export const STORIES = [
     name: 'Death of George Washington',
     image: require('../assets/images/WashintonDeath.png'),
     year: 1233,
-    previewText: 'More stuff',
+    previewText: 'More stuff. See Stories for more.',
     featured: false,
     description: 'Washington placeholder text3',
   },
