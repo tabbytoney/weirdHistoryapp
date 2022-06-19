@@ -7,7 +7,18 @@ const RenderStory = ({ story }) => {
       <Card containerStyle={{ padding: 0 }}>
         <Card.Image source={story.image}>
           <View style={{ justifyContent: 'center', flex: 1 }}>
-            <Text style={{ color: 'white', textAlign: 'center', fontSize: 20 }}>
+            <Text
+              style={{
+                color: '#fff',
+                textAlign: 'center',
+                fontSize: 20,
+                paddingLeft: 30,
+                paddingRight: 30,
+                textShadowColor: 'black',
+                textShadowOffset: { width: 1, height: 1 },
+                textShadowRadius: 20,
+              }}
+            >
               {story.name}
             </Text>
           </View>

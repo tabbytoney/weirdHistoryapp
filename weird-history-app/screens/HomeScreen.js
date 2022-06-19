@@ -1,5 +1,5 @@
-import { Text, View, ScrollView } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Text, View, ScrollView, Button } from 'react-native';
+import { Avatar, Card, ListItem } from 'react-native-elements';
 import { useState } from 'react';
 import { PEOPLE } from '../shared/people';
 import { STORIES } from '../shared/stories';
@@ -15,6 +15,11 @@ const FeaturedItem = ({ item }) => {
                 color: '#fff',
                 textAlign: 'center',
                 fontSize: 20,
+                paddingLeft: 30,
+                paddingRight: 30,
+                textShadowColor: 'black',
+                textShadowOffset: { width: 1, height: 1 },
+                textShadowRadius: 20,
               }}
             >
               {item.name}
@@ -28,7 +33,7 @@ const FeaturedItem = ({ item }) => {
   return <View />;
 };
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [stories, setStories] = useState(STORIES);
   const [people, setPeople] = useState(PEOPLE);
 
