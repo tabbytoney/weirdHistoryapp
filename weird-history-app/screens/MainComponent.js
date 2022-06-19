@@ -3,9 +3,13 @@ import Constants from 'expo-constants';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './HomeScreen';
+import AboutScreen from './AboutScreen';
+import ContactScreen from './ContactScreen';
 import StoryInfoScreen from './StoryInfoScreen';
 import WeirdStoriesScreen from './WeirdStoriesScreen';
+import WeirdPeopleScreen from './WeirdPeopleScreen';
 import { Header, Text, Icon } from 'react-native-elements';
+import PeopleInfoScreen from './PeopleInfoScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -75,6 +79,41 @@ const StoriesNavigator = ({ navigation }) => {
   );
 };
 
+const PeopleNavigator = ({ navigation }) => {
+  const Stack = createStackNavigator();
+  return (
+    <>
+      <Header
+        backgroundColor='#d56a53'
+        leftComponent={
+          <Icon name='menu' onPress={() => navigation.openDrawer()} />
+        }
+        centerComponent={
+          <Text
+            style={{ color: '#fff', justifyContent: 'center', fontSize: 20 }}
+          >
+            Weird People
+          </Text>
+        }
+      />
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen
+          name='People'
+          component={WeirdPeopleScreen}
+          options={{ title: 'Weird People' }}
+        />
+        <Stack.Screen
+          name='PeopleInfo'
+          component={PeopleInfoScreen}
+          options={({ route }) => ({
+            title: route.params.people.name,
+          })}
+        />
+      </Stack.Navigator>
+    </>
+  );
+};
+
 const AboutNavigator = ({ navigation }) => {
   const Stack = createStackNavigator();
   return (
@@ -93,7 +132,11 @@ const AboutNavigator = ({ navigation }) => {
         }
       />
       <Stack.Navigator screenOptions={screenOptions}>
-        <Stack.Screen name='About' component={AboutScreen} />
+        <Stack.Screen
+          name='About'
+          component={AboutScreen}
+          options={{ title: 'About' }}
+        />
       </Stack.Navigator>
     </>
   );
@@ -138,7 +181,6 @@ const Main = () => {
       <Drawer.Navigator
         drawerContentOptions={{
           activeTintColor: 'pink',
-
           inactiveTintColor: 'black',
           inactiveBackgroundColor: 'white',
           labelStyle: {
@@ -156,6 +198,11 @@ const Main = () => {
         />
         <Drawer.Screen
           name='Stories'
+          component={PeopleNavigator}
+          options={{ title: 'Weird People' }}
+        />
+        <Drawer.Screen
+          name='People'
           component={StoriesNavigator}
           options={{ title: 'Weird Stories' }}
         />
