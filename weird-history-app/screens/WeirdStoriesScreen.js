@@ -12,7 +12,7 @@ const WeirdStoriesScreen = ({ navigation }) => {
         <Avatar source={story.image} rounded />
         <ListItem.Content>
           <ListItem.Title>{story.name}</ListItem.Title>
-          <ListItem.Subtitle>{story.description}</ListItem.Subtitle>
+          <ListItem.Subtitle>{story.previewText}</ListItem.Subtitle>
         </ListItem.Content>
       </ListItem>
     );

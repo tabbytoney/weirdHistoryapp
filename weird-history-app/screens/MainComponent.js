@@ -5,68 +5,125 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './HomeScreen';
 import StoryInfoScreen from './StoryInfoScreen';
 import WeirdStoriesScreen from './WeirdStoriesScreen';
+import { Header, Text, Icon } from 'react-native-elements';
 
 const Drawer = createDrawerNavigator();
 
 const screenOptions = {
   headerStyle: {
-    backgroundColor: '#d56a53',
+    backgroundColor: '#f8a492',
   },
   headerTintColor: '#fff',
 };
 
-const HomeNavigator = () => {
+const HomeNavigator = ({ navigation }) => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name='Home'
-        component={HomeScreen}
-        options={{ title: 'Home' }}
+    <>
+      <Header
+        backgroundColor='#d56a53'
+        leftComponent={
+          <Icon name='menu' onPress={() => navigation.openDrawer()} />
+        }
+        centerComponent={
+          <Text style={{ color: '#fff', justifyContent: 'center' }}>Home</Text>
+        }
       />
-    </Stack.Navigator>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen
+          name='Home'
+          component={HomeScreen}
+          options={{ title: 'Home' }}
+        />
+      </Stack.Navigator>
+    </>
   );
 };
 
-const StoriesNavigator = () => {
+const StoriesNavigator = ({ navigation }) => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name='Stories'
-        component={WeirdStoriesScreen}
-        options={{ title: 'Home' }}
+    <>
+      <Header
+        backgroundColor='#d56a53'
+        leftComponent={
+          <Icon name='menu' onPress={() => navigation.openDrawer()} />
+        }
+        centerComponent={
+          <Text
+            style={{ color: '#fff', justifyContent: 'center', fontSize: 20 }}
+          >
+            Weird Stories
+          </Text>
+        }
       />
-      <Stack.Screen
-        name='StoryInfo'
-        component={StoryInfoScreen}
-        options={({ route }) => ({
-          title: route.params.story.name,
-        })}
-      />
-    </Stack.Navigator>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen
+          name='Stories'
+          component={WeirdStoriesScreen}
+          options={{ title: 'Weird Stories' }}
+        />
+        <Stack.Screen
+          name='StoryInfo'
+          component={StoryInfoScreen}
+          options={({ route }) => ({
+            title: route.params.story.name,
+          })}
+        />
+      </Stack.Navigator>
+    </>
   );
 };
 
-const AboutNavigator = () => {
+const AboutNavigator = ({ navigation }) => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen name='About' component={AboutScreen} />
-    </Stack.Navigator>
+    <>
+      <Header
+        backgroundColor='#d56a53'
+        leftComponent={
+          <Icon name='menu' onPress={() => navigation.openDrawer()} />
+        }
+        centerComponent={
+          <Text
+            style={{ color: '#fff', justifyContent: 'center', fontSize: 20 }}
+          >
+            About
+          </Text>
+        }
+      />
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name='About' component={AboutScreen} />
+      </Stack.Navigator>
+    </>
   );
 };
 
-const ContactNavigator = () => {
+const ContactNavigator = ({ navigation }) => {
   const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={screenOptions}>
-      <Stack.Screen
-        name='Contact'
-        component={ContactScreen}
-        options={{ title: 'Contact Us' }}
+    <>
+      <Header
+        backgroundColor='#d56a53'
+        leftComponent={
+          <Icon name='menu' onPress={() => navigation.openDrawer()} />
+        }
+        centerComponent={
+          <Text
+            style={{ color: '#fff', justifyContent: 'center', fontSize: 20 }}
+          >
+            Contact Us
+          </Text>
+        }
       />
-    </Stack.Navigator>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen
+          name='Contact'
+          component={ContactScreen}
+          options={{ title: 'Contact Us' }}
+        />
+      </Stack.Navigator>
+    </>
   );
 };
 
@@ -79,6 +136,16 @@ const Main = () => {
       }}
     >
       <Drawer.Navigator
+        drawerContentOptions={{
+          activeTintColor: 'pink',
+          activeBackgroundColor: 'grey',
+          inactiveTintColor: 'black',
+          inactiveBackgroundColor: 'white',
+          labelStyle: {
+            fontSize: 20,
+            marginLeft: 10,
+          },
+        }}
         initialRouteName='Home'
         drawerStyle={{ backgroundColor: '#fff' }}
       >
@@ -90,10 +157,14 @@ const Main = () => {
         <Drawer.Screen
           name='Stories'
           component={StoriesNavigator}
-          options={{ title: 'Story' }}
+          options={{ title: 'Weird Stories' }}
         />
 
-        <Drawer.Screen name='About' component={AboutNavigator} />
+        <Drawer.Screen
+          name='About'
+          component={AboutNavigator}
+          options={{ title: 'About Us' }}
+        />
 
         <Drawer.Screen
           name='Contact'
