@@ -1,19 +1,30 @@
 import { Text, View } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Card, Image } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const RenderStory = ({ story }) => {
   if (story) {
     return (
-      <Card containerStyle={{ padding: 0 }}>
-        <Card.Image source={story.image}>
+      <View style={{ flex: 1 }}>
+        <ScrollView>
           <View style={{ justifyContent: 'center', flex: 1 }}>
+            <Image
+              source={story.image}
+              style={{
+                width: 400,
+                height: 200,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            />
             <Text
               style={{
-                color: '#fff',
+                color: 'black',
                 textAlign: 'center',
                 fontSize: 20,
                 paddingLeft: 30,
                 paddingRight: 30,
+                paddingTop: 20,
                 textShadowColor: 'black',
                 textShadowOffset: { width: 1, height: 1 },
                 textShadowRadius: 20,
@@ -22,9 +33,12 @@ const RenderStory = ({ story }) => {
               {story.name}
             </Text>
           </View>
-        </Card.Image>
-        <Text style={{ margin: 20 }}>{story.description}</Text>
-      </Card>
+
+          <Text style={{ margin: 20, fontSize: 23, textAlign: 'center' }}>
+            {story.description}
+          </Text>
+        </ScrollView>
+      </View>
     );
   }
   return <View />;

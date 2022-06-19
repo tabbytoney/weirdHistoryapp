@@ -3,7 +3,6 @@ import { Avatar, Card, ListItem, Header, Icon } from 'react-native-elements';
 import { useState } from 'react';
 import { PEOPLE } from '../shared/people';
 import { STORIES } from '../shared/stories';
-import HeaderCom from '../features/Header';
 
 const FeaturedItem = ({ item }) => {
   if (item) {
