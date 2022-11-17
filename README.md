@@ -1,6 +1,6 @@
 # weirdHistoryapp
  
-An app built with React Native with weird history stories and people. 
+An app built with React Native with weird history stories and people. Brought to you by a Covid fever.
 
 ##To run:
 1. npm i
